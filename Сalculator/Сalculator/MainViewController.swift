@@ -11,9 +11,14 @@ import Cocoa
 class MainViewController: NSViewController {
     
     @IBOutlet weak var resultTextField: NSTextField!
+    let symbolsArray = ["%", "÷", "×", "+", "-"]
+    
     var newSymbol: String = "" {
         didSet {
-           resultTextField.stringValue = resultTextField.stringValue + newSymbol
+            if isValidNewSymbol(newSymbol: newSymbol) {
+                resultTextField.stringValue = resultTextField.stringValue + newSymbol
+            }
+            
         }
     }
     
@@ -22,10 +27,7 @@ class MainViewController: NSViewController {
     }
 
     @IBAction func symbolClick(_ sender: NSButton) {
-        let formulaStr = resultTextField.stringValue + sender.title
-        if isValidFormula(formulaStr: formulaStr) {
-            newSymbol = sender.title
-        }
+        newSymbol = sender.title
     }
     
     @IBAction func resetButton(_ sender: NSButton) {
@@ -41,9 +43,48 @@ class MainViewController: NSViewController {
         resultTextField.stringValue = result.stringValue
     }
     
-    private func isValidFormula(formulaStr: String) -> Bool {
+    private func isValidNewSymbol(newSymbol: String) -> Bool {
+
+        if newSymbol.isNumber {
+            if let lastSymbol = resultTextField.stringValue.last {
+                if  lastSymbol == ")" {
+                    return false
+                }
+            }
+        }
+        if symbolsArray.contains(newSymbol) {
+            guard let lastSymbol = resultTextField.stringValue.last else { return false }
+
+            if  lastSymbol != ")",
+                String(lastSymbol).isNumber == false {
+                return false
+            }
+        }
+        if newSymbol == "." {
+            guard let lastSymbol = resultTextField.stringValue.last else { return false }
+            if String(lastSymbol).isNumber == false {
+                return false
+            }
+        }
+        if newSymbol == "(" {
+            if let lastSymbol = resultTextField.stringValue.last {
+                if !symbolsArray.contains(String(lastSymbol)),
+                    lastSymbol != "(" {
+                    return false
+                }
+            }
+        }
+        if newSymbol == ")" {
+            guard let lastSymbol = resultTextField.stringValue.last else { return false }
+            let openSymbolCount = resultTextField.stringValue.countInstances(of: "(")
+            let closeSymbolCount = resultTextField.stringValue.countInstances(of: ")")
+            if openSymbolCount - closeSymbolCount <= 0 ||
+                String(lastSymbol).isNumber == false {
+                return false
+            }
+        }
+        
         return true
     }
-    
 }
 

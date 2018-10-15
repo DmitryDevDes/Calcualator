@@ -14,6 +14,7 @@
 		0A40AA3421578915004D7D5B /* _alculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40AA3321578915004D7D5B /* _alculatorTests.swift */; };
 		0A40AA3F21578915004D7D5B /* _alculatorUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40AA3E21578915004D7D5B /* _alculatorUITests.swift */; };
 		0A40AA4E21579C3B004D7D5B /* NSExpression+Additionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40AA4D21579C3B004D7D5B /* NSExpression+Additionals.swift */; };
+		0A40AA5021749A6E004D7D5B /* String+Additionals.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A40AA4F21749A6E004D7D5B /* String+Additionals.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		0A40AA3E21578915004D7D5B /* _alculatorUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = _alculatorUITests.swift; sourceTree = "<group>"; };
 		0A40AA4021578915004D7D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A40AA4D21579C3B004D7D5B /* NSExpression+Additionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSExpression+Additionals.swift"; sourceTree = "<group>"; };
+		0A40AA4F21749A6E004D7D5B /* String+Additionals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additionals.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				0A40AA4D21579C3B004D7D5B /* NSExpression+Additionals.swift */,
+				0A40AA4F21749A6E004D7D5B /* String+Additionals.swift */,
 			);
 			path = Additionals;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A40AA2321578912004D7D5B /* MainViewController.swift in Sources */,
+				0A40AA5021749A6E004D7D5B /* String+Additionals.swift in Sources */,
 				0A40AA2121578912004D7D5B /* AppDelegate.swift in Sources */,
 				0A40AA4E21579C3B004D7D5B /* NSExpression+Additionals.swift in Sources */,
 			);
